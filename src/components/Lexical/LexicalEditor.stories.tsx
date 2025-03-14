@@ -1,10 +1,8 @@
 import LexicalEditor from "./LexicalEditor";
-
 export default {
   title: "Editor/LexicalEditor",
   component: LexicalEditor,
 };
-
 export const Default = {
   args: {
     initialContent: "Initial content",
