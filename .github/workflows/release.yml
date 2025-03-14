@@ -21,14 +21,27 @@ jobs:
           node-version: 20
           registry-url: "https://registry.npmjs.org/"
 
+      - name: Debug NPM Token
+        run: |
+          if [ -z "${{ secrets.NPM_TOKEN }}" ]; then
+            echo "❌ NPM_TOKEN is EMPTY or not available!"
+            exit 1
+          else
+            echo "✅ NPM_TOKEN is SET"
+          fi
+
       - name: Authenticate with npm
-        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+          cat ~/.npmrc  # Проверяем, что файл реально создался
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm ci
 
       - name: Build package
-        run: yarn build
+        run: npm run build
 
       - name: Release new version
         env:
