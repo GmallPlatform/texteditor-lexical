@@ -1,0 +1,60 @@
+.templates-editor-main-container {
+  .button {
+    cursor: pointer;
+    text-transform: none;
+    height: 40px; /* Default height */
+    display: inline-flex;
+    height: 40px;
+
+    padding: var(--space-250, 10px) var(--space-400, 16px);
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-200, 8px);
+    flex-shrink: 0;
+    border-radius: var(--radius-200, 8px);
+    outline: 0;
+    transition:
+      border-color 0.25s,
+      background-color 0.25s;
+  }
+  .button[full-width="true"] {
+    width: 100%;
+  }
+
+  .button:focus,
+  .button:focus-visible {
+    outline: 0 !important;
+  }
+  button:focus,
+  button:focus-visible {
+    outline: 0 !important;
+  }
+  button:disabled {
+    background: var(--background-gray-default-disabled, #fafafa);
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  /* Primary Button */
+  .primaryButton {
+    border: none;
+    color: var(--text-primary-on-primary, #fff);
+    background: var(--background-primary-default, #145ba6);
+  }
+  .primaryButton[data-size="small"] {
+    height: 32px;
+    padding: var(--space-200, 8px) var(--space-300, 12px);
+  }
+
+  .primaryButton:hover {
+    background: var(--background-primary-default-hover, #75649d);
+  }
+
+  .primaryButton:disabled {
+    color: var(--text-gray-default-disabled, #888);
+  }
+
+  .primaryButton:active {
+    background: var(--background-primary-default-pressed, #625483);
+  }
+}

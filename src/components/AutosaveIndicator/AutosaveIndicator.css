@@ -1,0 +1,38 @@
+.templates-editor-main-container {
+  .autosave-indicator {
+    display: flex;
+    align-items: center;
+    .autosave-text {
+      transition: opacity 0.2s ease-in-out;
+      color: var(--text-primary-secondary, #2878c9);
+      text-align: center;
+    }
+
+    .autosave-text.saved {
+      opacity: 0.8;
+    }
+    /* .autosave-text.saving::after {
+    content: "";
+    animation: dotsAnimation 1.5s infinite;
+  } */
+  }
+
+  /* Анимация точек для "Saving..." */
+  @keyframes dotsAnimation {
+    0% {
+      content: "";
+    }
+    25% {
+      content: ".";
+    }
+    50% {
+      content: "..";
+    }
+    75% {
+      content: "...";
+    }
+    100% {
+      content: "";
+    }
+  }
+}

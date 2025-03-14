@@ -1,0 +1,210 @@
+/**
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ *
+ */
+
+.templates-editor-main-container {
+  .Modal__overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    flex-direction: column;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background-color: rgba(40, 40, 40, 0.6);
+    flex-grow: 0px;
+    flex-shrink: 1px;
+    z-index: 107;
+  }
+  .Modal__modal {
+    padding: 20px;
+    min-height: 100px;
+    min-width: 560px;
+    display: flex;
+    flex-grow: 0px;
+    background-color: #fff;
+    flex-direction: column;
+    position: relative;
+    box-shadow: 0 0 20px 0 #444;
+    border-radius: 10px;
+  }
+  .Modal__title {
+    color: #444;
+    margin: 0px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  .Modal__closeButton {
+    border: 0px;
+    position: absolute;
+    right: 20px;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    cursor: pointer;
+    background-color: #eee;
+  }
+  .Modal__closeButton:hover {
+    background-color: #ddd;
+  }
+  .Modal__content {
+    padding-top: 20px;
+    max-height: 60vh;
+  }
+
+  .Modal__wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    padding: var(--space-0, 0px);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-800, 32px);
+    border-radius: var(--radius-400, 16px);
+    background: var(--background-gray-default, #fff);
+    /* card shadow/L */
+    box-shadow:
+      0px 184px 51px 0px rgba(52, 46, 72, 0),
+      0px 118px 47px 0px rgba(52, 46, 72, 0.01),
+      0px 66px 40px 0px rgba(52, 46, 72, 0.05),
+      0px 29px 29px 0px rgba(52, 46, 72, 0.09),
+      0px 7px 16px 0px rgba(52, 46, 72, 0.1);
+  }
+
+  .Modal__wrapper:focus-visible {
+    outline: none;
+  }
+
+  /* Responsive Widths */
+  @media (max-width: 600px) {
+    /* xs breakpoint */
+    .Modal__wrapper {
+      width: 95%;
+      max-width: 560px;
+    }
+  }
+
+  @media (min-width: 600px) and (max-width: 960px) {
+    /* sm breakpoint */
+    .Modal__wrapper {
+      width: 95%;
+      max-width: 560px;
+    }
+  }
+
+  @media (min-width: 960px) and (max-width: 1280px) {
+    /* md breakpoint */
+    .Modal__wrapper {
+      width: 90%;
+      max-width: 800px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    /* lg breakpoint */
+    .Modal__wrapper {
+      width: 80%;
+      max-width: 900px;
+    }
+  }
+
+  .Modal__header {
+    display: flex;
+    align-self: stretch;
+    justify-content: space-between;
+    padding: var(--space-300, 12px) var(--space-600, 24px);
+    align-items: center;
+    gap: var(--space-300, 12px);
+    border-radius: var(--radius-400, 16px) var(--radius-400, 16px) 0px 0px;
+    border-bottom: var(--stroke-border, 1px) solid
+      var(--border-default-tertiary, #e7e7e7);
+    background: var(--background-gray-secondary, #fafafa);
+  }
+
+  .Modal__content {
+    display: flex;
+    padding: var(--space-0, 0px) var(--space-600, 24px);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-200, 8px);
+    align-self: stretch;
+
+    /* background: var(--Gray-0, #fff); */
+
+    /* .textWrapper {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0px 24px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+      align-self: stretch;
+      background-color: transparent;
+    } */
+  }
+
+  .imgContainer {
+    overflow-y: auto;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 24px;
+    width: 100%;
+  }
+
+  .modalImg {
+    max-width: 100%;
+    object-fit: contain;
+
+    max-height: calc(100vh - 264px);
+    width: auto;
+    /* max-height: 100%;
+    
+    object-fit: contain; */
+  }
+
+  .Modal__editContent {
+    display: flex;
+    padding: var(--space-0, 0px) var(--space-600, 24px);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-400, 16px);
+    align-self: stretch;
+  }
+  .Modal__form {
+    width: 100%;
+    gap: 24px;
+    display: flex;
+    flex-direction: column;
+  }
+  .Modal__footer {
+    display: flex;
+    align-self: stretch;
+    padding: var(--space-300, 12px) var(--space-600, 24px);
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: var(--space-400, 16px);
+    border-top: var(--stroke-border, 1px) solid
+      var(--border-default-tertiary, #e7e7e7);
+    .Modal__buttonWrapper {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-400, 16px);
+    }
+  }
+}

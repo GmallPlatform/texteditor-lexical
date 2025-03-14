@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "jsxImportSource": "react",
+    "esModuleInterop": true,
+    "target": "ES2020",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "jsx": "react-jsx",
+    "declaration": true,
+    "declarationDir": "./dist",
+    "outDir": "./dist",
+    "types": ["node", "@types/react", "@types/react-dom", "jest"],
+    "skipLibCheck": true,
+    "strict": true,
+    "isolatedModules": true,
+
+    "importHelpers": true,
+    "sourceMap": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true
+  },
+  "include": ["src/**/*", "src/index.d.ts"],
+  "exclude": ["node_modules", "dist"]
+}

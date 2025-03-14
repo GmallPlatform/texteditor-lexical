@@ -1,0 +1,20 @@
+import { LexicalCommand } from 'lexical';
+import { InsertImagePayload } from '../plugins/ImagesPlugin';
+import { InlineImagePayload } from '../nodes/InlineImageNode/InlineImageNode';
+export declare const blockTypeToBlockName: {
+    bullet: string;
+    check: string;
+    code: string;
+    h1: string;
+    h2: string;
+    h3: string;
+    h4: string;
+    h5: string;
+    h6: string;
+    number: string;
+    paragraph: string;
+    quote: string;
+};
+export declare const imageCache: Set<unknown>;
+export declare const INSERT_IMAGE_COMMAND: LexicalCommand<InsertImagePayload>;
+export declare const INSERT_INLINE_IMAGE_COMMAND: LexicalCommand<InlineImagePayload>;
