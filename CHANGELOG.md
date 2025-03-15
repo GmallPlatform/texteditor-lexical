@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/GmallPlatform/texteditor-lexical/compare/v1.0.1...v1.0.2) (2025-03-15)
+
+
+### Bug Fixes
+
+* Force patch release for new props ([3b37cc3](https://github.com/GmallPlatform/texteditor-lexical/commit/3b37cc302af56e03dfd903fc5c4bbd320445f5a6))
+
 ## [1.0.1](https://github.com/GmallPlatform/texteditor-lexical/compare/v1.0.0...v1.0.1) (2025-03-15)
 
 
