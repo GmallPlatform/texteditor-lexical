@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { LexicalComposer } from "@lexical/react/LexicalComposer";
 import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
 import { ContentEditable } from "@lexical/react/LexicalContentEditable";
 import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
 import { OnChangePlugin } from "@lexical/react/LexicalOnChangePlugin";
-
+import { v4 as uuidv4 } from "uuid";
 import { $generateHtmlFromNodes } from "@lexical/html";
 import ToolbarPlugin from "./ToolbarPlugin";
 import ErrorBoundary from "./ErrorBoundary";
@@ -31,6 +31,9 @@ export interface LexicalEditorProps {
   toolbarHide?: boolean;
   hideBorder?: boolean;
   addButtonForToolbar?: JSX.Element[];
+  placeholder?: string;
+  onFocusChange?: (isFocused: boolean) => void;
+  onHoverChange?: (isHovered: boolean) => void;
 }
 const EditLexical = ({
   initialContent = "",
@@ -40,21 +43,45 @@ const EditLexical = ({
   toolbarHide,
   hideBorder,
   addButtonForToolbar,
+  placeholder,
+  onFocusChange,
+  onHoverChange,
 }: LexicalEditorProps) => {
+  const namespaceRef = useRef(`LexicalEditor-${uuidv4()}`);
   const [initContent, setInitContent] = React.useState("");
   useEffect(() => {
     setInitContent(initialContent);
   }, [initialContent]);
+  const handleFocus = () => {
+    onFocusChange?.(true);
+  };
 
+  const handleBlur = () => {
+    onFocusChange?.(false);
+  };
+
+  const handleMouseEnter = () => {
+    onHoverChange?.(true);
+  };
+
+  const handleMouseLeave = () => {
+    onHoverChange?.(false);
+  };
   return (
     <>
       <div className="templates-editor-main-container">
         <div
           className={`lexical-editor-wrapper ${hideBorder ? "hide-border" : ""}`}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
         >
           <ToolbarContext>
             <LexicalComposer
-              initialConfig={{ ...initialConfig, editable: !readOnly }}
+              initialConfig={{
+                ...initialConfig,
+                editable: !readOnly,
+                namespace: namespaceRef.current,
+              }}
             >
               <div
                 className={`editor-container   ${readOnly ? "readonly" : ""}`}
@@ -70,11 +97,15 @@ const EditLexical = ({
                 <div className="editor-inner">
                   <RichTextPlugin
                     contentEditable={
-                      <ContentEditable className="editor-input" />
+                      <ContentEditable
+                        className="editor-input"
+                        onFocus={handleFocus}
+                        onBlur={handleBlur}
+                      />
                     }
                     placeholder={
                       <div className="editor-placeholder">
-                        Type something...
+                        {placeholder ? placeholder : "Type something..."}
                       </div>
                     }
                     ErrorBoundary={ErrorBoundary}
