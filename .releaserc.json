@@ -8,7 +8,12 @@
     [
       "@semantic-release/github",
       {
-        "assets": ["dist/**"]
+        "assets": [
+          {
+            "path": "dist/**",
+            "name": "dist-${nextRelease.version}.zip"
+          }
+        ]
       }
     ],
     [
