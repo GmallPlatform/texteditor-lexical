@@ -57,6 +57,7 @@ function App() {
               Revers
             </button>,
           ]}
+          placeholder="Type something here"
         />
       </div>
     </div>
