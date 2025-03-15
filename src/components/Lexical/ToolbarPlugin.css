@@ -16,6 +16,7 @@
       var(--border-gray-default, #e3e3e3);
     align-self: stretch;
     justify-content: space-between;
+    overflow-x: auto;
   }
   .toolbar-templates-lexical-left {
     display: flex;
