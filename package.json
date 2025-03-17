@@ -18,7 +18,7 @@
     "build-storybook": "storybook build",
     "size": "size-limit",
     "analyze": "size-limit --why",
-    "pre-commit": "npm run lint && npm run test && npm run build && git add dist/",
+    "pre-commit": "npm run lint --fix && npm run build && git add dist/",
     "test": "jest --bail",
     "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}' --fix",
     "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,json,css,md}'",

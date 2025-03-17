@@ -1,1 +1,1 @@
-"use strict";Object.defineProperty(exports,Symbol.toStringTag,{value:"Module"});const e=require("./index-D16gJ2rU.cjs");exports.LexicalEditor=e.EditLexical;
+"use strict";Object.defineProperty(exports,Symbol.toStringTag,{value:"Module"});const e=require("./index-DHhgz3LD.cjs");exports.LexicalEditor=e.EditLexical;
