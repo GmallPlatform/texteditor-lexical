@@ -34,6 +34,7 @@ export interface LexicalEditorProps {
   placeholder?: string;
   onFocusChange?: (isFocused: boolean) => void;
   onHoverChange?: (isHovered: boolean) => void;
+  uploadImage?: boolean;
 }
 const EditLexical = ({
   initialContent = "",
@@ -46,6 +47,7 @@ const EditLexical = ({
   placeholder,
   onFocusChange,
   onHoverChange,
+  uploadImage,
 }: LexicalEditorProps) => {
   const namespaceRef = useRef(`LexicalEditor-${uuidv4()}`);
   const [initContent, setInitContent] = React.useState("");
@@ -92,6 +94,7 @@ const EditLexical = ({
                     isAutosaving={isAutosaving}
                     isDisabled={readOnly}
                     addButtonForToolbar={addButtonForToolbar}
+                    uploadImage={uploadImage}
                   />
                 )}
                 <div className="editor-inner">

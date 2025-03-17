@@ -73,6 +73,7 @@ export default function ToolbarPlugin({
   isDisabled,
   InsertImageFromListDialogBody,
   addButtonForToolbar,
+  uploadImage,
 }: {
   isAutosaving?: boolean;
   isDisabled?: boolean;
@@ -81,6 +82,7 @@ export default function ToolbarPlugin({
     onCancel: () => void;
   }>;
   addButtonForToolbar?: JSX.Element[];
+  uploadImage?: boolean;
 }) {
   const [modal, showModal] = useModal();
   const [, setSelectedElementKey] = useState<NodeKey | null>(null);
@@ -126,7 +128,7 @@ export default function ToolbarPlugin({
         if ($isListNode(element) || element?.__type === "listitem") {
           const parentList = $getNearestNodeOfType<ListNode>(
             anchorNode,
-            ListNode,
+            ListNode
           );
           const type = (parentList && parentList.getListType()) || "paragraph";
 
@@ -138,7 +140,7 @@ export default function ToolbarPlugin({
           if (type && type in blockTypeToBlockName) {
             updateToolbarState(
               "blockType",
-              type as keyof typeof blockTypeToBlockName,
+              type as keyof typeof blockTypeToBlockName
             );
           }
           if ($isCodeNode(element)) {
@@ -146,7 +148,7 @@ export default function ToolbarPlugin({
               element.getLanguage() as keyof typeof CODE_LANGUAGE_MAP;
             updateToolbarState(
               "codeLanguage",
-              language ? CODE_LANGUAGE_MAP[language] || language : "",
+              language ? CODE_LANGUAGE_MAP[language] || language : ""
             );
             return;
           }
@@ -155,26 +157,26 @@ export default function ToolbarPlugin({
       // Handle buttons
       updateToolbarState(
         "fontColor",
-        $getSelectionStyleValueForProperty(selection, "color", "#000"),
+        $getSelectionStyleValueForProperty(selection, "color", "#000")
       );
       updateToolbarState(
         "bgColor",
         $getSelectionStyleValueForProperty(
           selection,
           "background-color",
-          "#fff",
-        ),
+          "#fff"
+        )
       );
       updateToolbarState(
         "fontFamily",
-        $getSelectionStyleValueForProperty(selection, "font-family", "Arial"),
+        $getSelectionStyleValueForProperty(selection, "font-family", "Arial")
       );
       let matchingParent;
       if ($isLinkNode(parent)) {
         // If node is a link, we need to fetch the parent paragraph node to set format
         matchingParent = $findMatchingParent(
           node,
-          (parentNode) => $isElementNode(parentNode) && !parentNode.isInline(),
+          (parentNode) => $isElementNode(parentNode) && !parentNode.isInline()
         );
       }
 
@@ -185,7 +187,7 @@ export default function ToolbarPlugin({
           ? matchingParent.getFormatType()
           : $isElementNode(node)
             ? node.getFormatType()
-            : parent?.getFormatType() || "left",
+            : parent?.getFormatType() || "left"
       );
     }
     if ($isRangeSelection(selection) || $isTableSelection(selection)) {
@@ -195,14 +197,14 @@ export default function ToolbarPlugin({
       updateToolbarState("isUnderline", selection.hasFormat("underline"));
       updateToolbarState(
         "isStrikethrough",
-        selection.hasFormat("strikethrough"),
+        selection.hasFormat("strikethrough")
       );
       updateToolbarState("isSubscript", selection.hasFormat("subscript"));
       updateToolbarState("isSuperscript", selection.hasFormat("superscript"));
       updateToolbarState("isCode", selection.hasFormat("code"));
       updateToolbarState(
         "fontSize",
-        $getSelectionStyleValueForProperty(selection, "font-size", "15px"),
+        $getSelectionStyleValueForProperty(selection, "font-size", "15px")
       );
       // updateToolbarState("isLowercase", selection.hasFormat("lowercase"));
       // updateToolbarState("isUppercase", selection.hasFormat("uppercase"));
@@ -224,7 +226,7 @@ export default function ToolbarPlugin({
           $updateToolbar();
           return false;
         },
-        LowPriority,
+        LowPriority
       ),
       editor.registerCommand(
         CAN_UNDO_COMMAND,
@@ -232,7 +234,7 @@ export default function ToolbarPlugin({
           setCanUndo(payload);
           return false;
         },
-        LowPriority,
+        LowPriority
       ),
       editor.registerCommand(
         CAN_REDO_COMMAND,
@@ -240,8 +242,8 @@ export default function ToolbarPlugin({
           setCanRedo(payload);
           return false;
         },
-        LowPriority,
-      ),
+        LowPriority
+      )
     );
   }, [editor, $updateToolbar]);
 
@@ -254,36 +256,36 @@ export default function ToolbarPlugin({
             $patchStyleText(selection, styles);
           }
         },
-        skipHistoryStack ? { tag: "historic" } : {},
+        skipHistoryStack ? { tag: "historic" } : {}
       );
     },
-    [editor],
+    [editor]
   );
 
   const onFontColorSelect = useCallback(
     (value: string, skipHistoryStack: boolean) => {
       applyStyleText({ color: value }, skipHistoryStack);
     },
-    [applyStyleText],
+    [applyStyleText]
   );
 
   const onBgColorSelect = useCallback(
     (value: string, skipHistoryStack: boolean) => {
       applyStyleText({ "background-color": value }, skipHistoryStack);
     },
-    [applyStyleText],
+    [applyStyleText]
   );
   // container for dropdown
   const toolbarContainerRef = useRef<HTMLElement | null>(null);
   useEffect(() => {
     toolbarContainerRef.current = document.querySelector(
-      ".templates-editor-main-container",
+      ".templates-editor-main-container"
     );
   }, []);
   const handleClick = (
     event: React.MouseEvent<HTMLButtonElement>,
     command: any,
-    type?: string,
+    type?: string
   ) => {
     event.preventDefault(); // Предотвращает отправку формы
     event.stopPropagation(); // Предотвращает всплытие события
@@ -421,24 +423,26 @@ export default function ToolbarPlugin({
         >
           <JustifyAlignIcon />
         </button>
-        <button
-          disabled={isDisabled}
-          onClick={(event) => {
-            event.preventDefault();
-            event.stopPropagation();
-            showModal("Insert Image", (onClose) => (
-              <InsertImageDialog
-                activeEditor={editor}
-                onClose={onClose}
-                InsertImageFromListDialogBody={InsertImageFromListDialogBody}
-              />
-            ));
-          }}
-          className="toolbar-item"
-          aria-label="Justify Align"
-        >
-          <FileImageIcon />
-        </button>
+        {uploadImage && (
+          <button
+            disabled={isDisabled}
+            onClick={(event) => {
+              event.preventDefault();
+              event.stopPropagation();
+              showModal("Insert Image", (onClose) => (
+                <InsertImageDialog
+                  activeEditor={editor}
+                  onClose={onClose}
+                  InsertImageFromListDialogBody={InsertImageFromListDialogBody}
+                />
+              ));
+            }}
+            className="toolbar-item"
+            aria-label="Justify Align"
+          >
+            <FileImageIcon />
+          </button>
+        )}
         {addButtonForToolbar?.map((Button, index) => (
           <React.Fragment key={index}>{Button}</React.Fragment>
         ))}
