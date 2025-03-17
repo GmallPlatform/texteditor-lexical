@@ -1,3 +1,10 @@
+## [1.0.6](https://github.com/GmallPlatform/texteditor-lexical/compare/v1.0.5...v1.0.6) (2025-03-17)
+
+
+### Bug Fixes
+
+* min-height of the toolbar ([c724dd3](https://github.com/GmallPlatform/texteditor-lexical/commit/c724dd39f78e18336d2e55d80444b75414dbe3d2))
+
 ## [1.0.5](https://github.com/GmallPlatform/texteditor-lexical/compare/v1.0.4...v1.0.5) (2025-03-17)
 
 
