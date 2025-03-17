@@ -1,3 +1,12 @@
+## [1.0.10](https://github.com/GmallPlatform/texteditor-lexical/compare/v1.0.9...v1.0.10) (2025-03-17)
+
+
+### Bug Fixes
+
+* проверка запуска npm run build ([29972e2](https://github.com/GmallPlatform/texteditor-lexical/commit/29972e28abf1ba75a461f7eda10542f19ec6c89d))
+* проверка запуска npm run build ([6561515](https://github.com/GmallPlatform/texteditor-lexical/commit/65615157a8b10c596eb568547176fe73b20bd3af))
+* проверка запуска npm run build ([46244fb](https://github.com/GmallPlatform/texteditor-lexical/commit/46244fb529e9bdaaafcee12a4d9638a1dfc7907b))
+
 ## [1.0.9](https://github.com/GmallPlatform/texteditor-lexical/compare/v1.0.8...v1.0.9) (2025-03-17)
 
 
