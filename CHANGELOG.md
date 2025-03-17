@@ -1,3 +1,11 @@
+## [1.0.9](https://github.com/GmallPlatform/texteditor-lexical/compare/v1.0.8...v1.0.9) (2025-03-17)
+
+
+### Bug Fixes
+
+* add uploadImage prop to the component ([451ef39](https://github.com/GmallPlatform/texteditor-lexical/commit/451ef39a4cde87ab5508e5ffd01ba71f71b09050))
+* проверка запуска npm run build ([99c7606](https://github.com/GmallPlatform/texteditor-lexical/commit/99c7606370cfccf71296fc7096eeacebd0b297f9))
+
 ## [1.0.8](https://github.com/GmallPlatform/texteditor-lexical/compare/v1.0.7...v1.0.8) (2025-03-17)
 
 
