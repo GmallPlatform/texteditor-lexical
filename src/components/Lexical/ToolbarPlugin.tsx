@@ -126,7 +126,7 @@ export default function ToolbarPlugin({
         if ($isListNode(element) || element?.__type === "listitem") {
           const parentList = $getNearestNodeOfType<ListNode>(
             anchorNode,
-            ListNode,
+            ListNode
           );
           const type = (parentList && parentList.getListType()) || "paragraph";
 
@@ -138,7 +138,7 @@ export default function ToolbarPlugin({
           if (type && type in blockTypeToBlockName) {
             updateToolbarState(
               "blockType",
-              type as keyof typeof blockTypeToBlockName,
+              type as keyof typeof blockTypeToBlockName
             );
           }
           if ($isCodeNode(element)) {
@@ -146,7 +146,7 @@ export default function ToolbarPlugin({
               element.getLanguage() as keyof typeof CODE_LANGUAGE_MAP;
             updateToolbarState(
               "codeLanguage",
-              language ? CODE_LANGUAGE_MAP[language] || language : "",
+              language ? CODE_LANGUAGE_MAP[language] || language : ""
             );
             return;
           }
@@ -155,26 +155,26 @@ export default function ToolbarPlugin({
       // Handle buttons
       updateToolbarState(
         "fontColor",
-        $getSelectionStyleValueForProperty(selection, "color", "#000"),
+        $getSelectionStyleValueForProperty(selection, "color", "#000")
       );
       updateToolbarState(
         "bgColor",
         $getSelectionStyleValueForProperty(
           selection,
           "background-color",
-          "#fff",
-        ),
+          "#fff"
+        )
       );
       updateToolbarState(
         "fontFamily",
-        $getSelectionStyleValueForProperty(selection, "font-family", "Arial"),
+        $getSelectionStyleValueForProperty(selection, "font-family", "Arial")
       );
       let matchingParent;
       if ($isLinkNode(parent)) {
         // If node is a link, we need to fetch the parent paragraph node to set format
         matchingParent = $findMatchingParent(
           node,
-          (parentNode) => $isElementNode(parentNode) && !parentNode.isInline(),
+          (parentNode) => $isElementNode(parentNode) && !parentNode.isInline()
         );
       }
 
@@ -185,7 +185,7 @@ export default function ToolbarPlugin({
           ? matchingParent.getFormatType()
           : $isElementNode(node)
             ? node.getFormatType()
-            : parent?.getFormatType() || "left",
+            : parent?.getFormatType() || "left"
       );
     }
     if ($isRangeSelection(selection) || $isTableSelection(selection)) {
@@ -195,14 +195,14 @@ export default function ToolbarPlugin({
       updateToolbarState("isUnderline", selection.hasFormat("underline"));
       updateToolbarState(
         "isStrikethrough",
-        selection.hasFormat("strikethrough"),
+        selection.hasFormat("strikethrough")
       );
       updateToolbarState("isSubscript", selection.hasFormat("subscript"));
       updateToolbarState("isSuperscript", selection.hasFormat("superscript"));
       updateToolbarState("isCode", selection.hasFormat("code"));
       updateToolbarState(
         "fontSize",
-        $getSelectionStyleValueForProperty(selection, "font-size", "15px"),
+        $getSelectionStyleValueForProperty(selection, "font-size", "15px")
       );
       // updateToolbarState("isLowercase", selection.hasFormat("lowercase"));
       // updateToolbarState("isUppercase", selection.hasFormat("uppercase"));
@@ -224,7 +224,7 @@ export default function ToolbarPlugin({
           $updateToolbar();
           return false;
         },
-        LowPriority,
+        LowPriority
       ),
       editor.registerCommand(
         CAN_UNDO_COMMAND,
@@ -232,7 +232,7 @@ export default function ToolbarPlugin({
           setCanUndo(payload);
           return false;
         },
-        LowPriority,
+        LowPriority
       ),
       editor.registerCommand(
         CAN_REDO_COMMAND,
@@ -240,8 +240,8 @@ export default function ToolbarPlugin({
           setCanRedo(payload);
           return false;
         },
-        LowPriority,
-      ),
+        LowPriority
+      )
     );
   }, [editor, $updateToolbar]);
 
@@ -254,33 +254,42 @@ export default function ToolbarPlugin({
             $patchStyleText(selection, styles);
           }
         },
-        skipHistoryStack ? { tag: "historic" } : {},
+        skipHistoryStack ? { tag: "historic" } : {}
       );
     },
-    [editor],
+    [editor]
   );
 
   const onFontColorSelect = useCallback(
     (value: string, skipHistoryStack: boolean) => {
       applyStyleText({ color: value }, skipHistoryStack);
     },
-    [applyStyleText],
+    [applyStyleText]
   );
 
   const onBgColorSelect = useCallback(
     (value: string, skipHistoryStack: boolean) => {
       applyStyleText({ "background-color": value }, skipHistoryStack);
     },
-    [applyStyleText],
+    [applyStyleText]
   );
   // container for dropdown
   const toolbarContainerRef = useRef<HTMLElement | null>(null);
   useEffect(() => {
     toolbarContainerRef.current = document.querySelector(
-      ".templates-editor-main-container",
+      ".templates-editor-main-container"
     );
   }, []);
+  const handleClick = (
+    event: React.MouseEvent<HTMLButtonElement>,
+    command: any,
+    type?: string
+  ) => {
+    event.preventDefault(); // Предотвращает отправку формы
+    event.stopPropagation(); // Предотвращает всплытие события
 
+    editor.dispatchCommand(command, type);
+  };
   return (
     <div
       className={`toolbar-templates-lexical ${isDisabled ? "toolbar-disabled" : ""}`}
@@ -289,9 +298,7 @@ export default function ToolbarPlugin({
       <div className="toolbar-templates-lexical-left">
         <button
           disabled={!canUndo || isDisabled}
-          onClick={() => {
-            editor.dispatchCommand(UNDO_COMMAND, undefined);
-          }}
+          onClick={(e) => handleClick(e, UNDO_COMMAND)}
           className="toolbar-item spaced"
           aria-label="Undo"
         >
@@ -299,9 +306,7 @@ export default function ToolbarPlugin({
         </button>
         <button
           disabled={!canRedo || isDisabled}
-          onClick={() => {
-            editor.dispatchCommand(REDO_COMMAND, undefined);
-          }}
+          onClick={(e) => handleClick(e, REDO_COMMAND)}
           className="toolbar-item"
           aria-label="Redo"
         >
@@ -311,9 +316,7 @@ export default function ToolbarPlugin({
 
         <button
           disabled={isDisabled}
-          onClick={() => {
-            editor.dispatchCommand(FORMAT_TEXT_COMMAND, "bold");
-          }}
+          onClick={(e) => handleClick(e, FORMAT_TEXT_COMMAND, "bold")}
           className={
             "toolbar-item spaced " + (toolbarState.isBold ? "active" : "")
           }
@@ -323,9 +326,7 @@ export default function ToolbarPlugin({
         </button>
         <button
           disabled={isDisabled}
-          onClick={() => {
-            editor.dispatchCommand(FORMAT_TEXT_COMMAND, "italic");
-          }}
+          onClick={(e) => handleClick(e, FORMAT_TEXT_COMMAND, "italic")}
           className={
             "toolbar-item spaced " + (toolbarState.isItalic ? "active" : "")
           }
@@ -335,9 +336,7 @@ export default function ToolbarPlugin({
         </button>
         <button
           disabled={isDisabled}
-          onClick={() => {
-            editor.dispatchCommand(FORMAT_TEXT_COMMAND, "underline");
-          }}
+          onClick={(e) => handleClick(e, FORMAT_TEXT_COMMAND, "underline")}
           className={
             "toolbar-item spaced " + (toolbarState.isUnderline ? "active" : "")
           }
@@ -347,9 +346,7 @@ export default function ToolbarPlugin({
         </button>
         <button
           disabled={isDisabled}
-          onClick={() => {
-            editor.dispatchCommand(FORMAT_TEXT_COMMAND, "strikethrough");
-          }}
+          onClick={(e) => handleClick(e, FORMAT_TEXT_COMMAND, "strikethrough")}
           className={
             "toolbar-item spaced " +
             (toolbarState.isStrikethrough ? "active" : "")
@@ -394,9 +391,7 @@ export default function ToolbarPlugin({
 
         <button
           disabled={isDisabled}
-          onClick={() => {
-            editor.dispatchCommand(FORMAT_ELEMENT_COMMAND, "left");
-          }}
+          onClick={(e) => handleClick(e, FORMAT_TEXT_COMMAND, "left")}
           className="toolbar-item spaced"
           aria-label="Left Align"
         >
@@ -404,9 +399,7 @@ export default function ToolbarPlugin({
         </button>
         <button
           disabled={isDisabled}
-          onClick={() => {
-            editor.dispatchCommand(FORMAT_ELEMENT_COMMAND, "center");
-          }}
+          onClick={(e) => handleClick(e, FORMAT_TEXT_COMMAND, "center")}
           className="toolbar-item spaced"
           aria-label="Center Align"
         >
@@ -414,9 +407,7 @@ export default function ToolbarPlugin({
         </button>
         <button
           disabled={isDisabled}
-          onClick={() => {
-            editor.dispatchCommand(FORMAT_ELEMENT_COMMAND, "right");
-          }}
+          onClick={(e) => handleClick(e, FORMAT_TEXT_COMMAND, "right")}
           className="toolbar-item spaced"
           aria-label="Right Align"
         >
@@ -424,9 +415,7 @@ export default function ToolbarPlugin({
         </button>
         <button
           disabled={isDisabled}
-          onClick={() => {
-            editor.dispatchCommand(FORMAT_ELEMENT_COMMAND, "justify");
-          }}
+          onClick={(e) => handleClick(e, FORMAT_TEXT_COMMAND, "justify")}
           className="toolbar-item"
           aria-label="Justify Align"
         >
@@ -434,7 +423,9 @@ export default function ToolbarPlugin({
         </button>
         <button
           disabled={isDisabled}
-          onClick={() => {
+          onClick={(event) => {
+            event.preventDefault();
+            event.stopPropagation();
             showModal("Insert Image", (onClose) => (
               <InsertImageDialog
                 activeEditor={editor}
