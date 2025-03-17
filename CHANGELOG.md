@@ -1,3 +1,11 @@
+## [1.0.5](https://github.com/GmallPlatform/texteditor-lexical/compare/v1.0.4...v1.0.5) (2025-03-17)
+
+
+### Bug Fixes
+
+* FORMAT_ELEMENT_COMMAND using the correct format element ([244e748](https://github.com/GmallPlatform/texteditor-lexical/commit/244e748a28d329baf68784f2f617d2059ca90f2a))
+* prevent form submission on toolbar button click ([898533e](https://github.com/GmallPlatform/texteditor-lexical/commit/898533e5cf8d1ec7d91bd0621ee565a9c9b07d04))
+
 ## [1.0.4](https://github.com/GmallPlatform/texteditor-lexical/compare/v1.0.3...v1.0.4) (2025-03-15)
 
 
