@@ -33,7 +33,6 @@ jobs:
       - name: Authenticate with npm
         run: |
           echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
-          cat ~/.npmrc  # Проверяем, что файл реально создался
 
       - name: Install dependencies
         env:

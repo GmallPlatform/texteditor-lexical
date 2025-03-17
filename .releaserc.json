@@ -4,24 +4,30 @@
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
     "@semantic-release/changelog",
-    [
-      "@semantic-release/exec",
-      {
-        "prepareCmd": "npm run build"
-      }
-    ],
+    {
+      "path": "@semantic-release/exec",
+      "cmd": "npm run build"
+    },
     "@semantic-release/npm",
     [
       "@semantic-release/github",
       {
         "assets": [
           {
-            "path": "dist/**",
-            "name": "dist-${nextRelease.version}.zip"
+            "path": "dist/index.mjs",
+            "name": "index-${nextRelease.version}.mjs"
+          },
+          {
+            "path": "dist/index.cjs",
+            "name": "index-${nextRelease.version}.cjs"
+          },
+          {
+            "path": "dist/style.css",
+            "name": "style-${nextRelease.version}.css"
           }
         ],
-        "failOnDuplicateAssets": false,
-        "removeReferences": true
+        "failOnMissing": false,
+        "failOnDuplicateAssets": false
       }
     ],
     [
