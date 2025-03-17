@@ -391,7 +391,7 @@ export default function ToolbarPlugin({
 
         <button
           disabled={isDisabled}
-          onClick={(e) => handleClick(e, FORMAT_TEXT_COMMAND, "left")}
+          onClick={(e) => handleClick(e, FORMAT_ELEMENT_COMMAND, "left")}
           className="toolbar-item spaced"
           aria-label="Left Align"
         >
@@ -399,7 +399,7 @@ export default function ToolbarPlugin({
         </button>
         <button
           disabled={isDisabled}
-          onClick={(e) => handleClick(e, FORMAT_TEXT_COMMAND, "center")}
+          onClick={(e) => handleClick(e, FORMAT_ELEMENT_COMMAND, "center")}
           className="toolbar-item spaced"
           aria-label="Center Align"
         >
@@ -407,7 +407,7 @@ export default function ToolbarPlugin({
         </button>
         <button
           disabled={isDisabled}
-          onClick={(e) => handleClick(e, FORMAT_TEXT_COMMAND, "right")}
+          onClick={(e) => handleClick(e, FORMAT_ELEMENT_COMMAND, "right")}
           className="toolbar-item spaced"
           aria-label="Right Align"
         >
@@ -415,7 +415,7 @@ export default function ToolbarPlugin({
         </button>
         <button
           disabled={isDisabled}
-          onClick={(e) => handleClick(e, FORMAT_TEXT_COMMAND, "justify")}
+          onClick={(e) => handleClick(e, FORMAT_ELEMENT_COMMAND, "justify")}
           className="toolbar-item"
           aria-label="Justify Align"
         >

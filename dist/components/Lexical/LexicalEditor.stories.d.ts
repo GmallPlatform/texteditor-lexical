@@ -1,6 +1,6 @@
 declare const _default: {
     title: string;
-    component: ({ initialContent, onContentChange, readOnly, isAutosaving, toolbarHide, hideBorder, addButtonForToolbar, }: import('./LexicalEditor').LexicalEditorProps) => import("react/jsx-runtime").JSX.Element;
+    component: ({ initialContent, onContentChange, readOnly, isAutosaving, toolbarHide, hideBorder, addButtonForToolbar, placeholder, onFocusChange, onHoverChange, }: import('./LexicalEditor').LexicalEditorProps) => import("react/jsx-runtime").JSX.Element;
 };
 export default _default;
 export declare const Default: {

@@ -1,4 +1,4 @@
-import { E as a } from "./index-D4Isi5fY.js";
+import { E as a } from "./index-D4SFWvWd.js";
 export {
   a as LexicalEditor
 };

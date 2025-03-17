@@ -6,6 +6,9 @@ export interface LexicalEditorProps {
     toolbarHide?: boolean;
     hideBorder?: boolean;
     addButtonForToolbar?: JSX.Element[];
+    placeholder?: string;
+    onFocusChange?: (isFocused: boolean) => void;
+    onHoverChange?: (isHovered: boolean) => void;
 }
-declare const EditLexical: ({ initialContent, onContentChange, readOnly, isAutosaving, toolbarHide, hideBorder, addButtonForToolbar, }: LexicalEditorProps) => import("react/jsx-runtime").JSX.Element;
+declare const EditLexical: ({ initialContent, onContentChange, readOnly, isAutosaving, toolbarHide, hideBorder, addButtonForToolbar, placeholder, onFocusChange, onHoverChange, }: LexicalEditorProps) => import("react/jsx-runtime").JSX.Element;
 export default EditLexical;
