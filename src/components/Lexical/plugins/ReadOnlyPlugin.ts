@@ -7,6 +7,10 @@ export function ReadOnlyPlugin({ readOnly }: { readOnly: boolean }) {
 
   useEffect(() => {
     editor.setEditable(!readOnly);
+
+    return () => {
+      editor.setEditable(true); // Восстанавливаем редактирование при размонтировании
+    };
   }, [editor, readOnly]);
 
   return null;

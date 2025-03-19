@@ -18,7 +18,7 @@ function App() {
       }, 2000);
     },
 
-    [setCurrrentContent]
+    [setCurrrentContent],
   );
 
   const [disableEditor] = useState(false);

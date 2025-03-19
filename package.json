@@ -10,6 +10,11 @@
   "files": [
     "dist"
   ],
+  "exports": {
+    "import": "./dist/index.mjs",
+    "require": "./dist/index.cjs",
+    "types": "./dist/index.d.ts"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -18,13 +23,15 @@
     "build-storybook": "storybook build",
     "size": "size-limit",
     "analyze": "size-limit --why",
-    "pre-commit": "npm run lint --fix && npm run build && git add dist/",
+    "pre-commit": "npm run lint --fix",
     "test": "jest --bail",
     "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}' --fix",
     "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,json,css,md}'",
     "prepare": "husky install",
     "release": "np",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "prepack": "npm run build",
+    "postinstall": "husky install"
   },
   "peerDependencies": {
     "react": "^15.0.1 || ^16.0.0 || ^17.0.0 || ^18.0.0"
