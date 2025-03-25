@@ -8,12 +8,16 @@
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "dist/style.css"
   ],
   "exports": {
-    "import": "./dist/index.mjs",
-    "require": "./dist/index.cjs",
-    "types": "./dist/index.d.ts"
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./style.css": "./dist/style.css"
   },
   "scripts": {
     "dev": "vite",
@@ -34,12 +38,8 @@
     "postinstall": "husky install"
   },
   "peerDependencies": {
-    "react": "^15.0.1 || ^16.0.0 || ^17.0.0 || ^18.0.0"
-  },
-  "peerDependenciesMeta": {
-    "react": {
-      "optional": true
-    }
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -54,7 +54,7 @@
     "@lexical/selection": "^0.27.1",
     "@lexical/utils": "^0.27.1",
     "lexical": "^0.27.1",
-    "react": "^15.0.1 || ^16.0.0 || ^17.0.0 || ^18.0.0",
+    "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "uuid": "^9.0.1"
   },
