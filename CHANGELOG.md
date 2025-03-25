@@ -1,3 +1,10 @@
+## [1.0.11](https://github.com/GmallPlatform/texteditor-lexical/compare/v1.0.10...v1.0.11) (2025-03-25)
+
+
+### Bug Fixes
+
+* trigger patch release ([b98b3eb](https://github.com/GmallPlatform/texteditor-lexical/commit/b98b3eb747f200f246c8f98a38186d12fb4177fa))
+
 ## [1.0.10](https://github.com/GmallPlatform/texteditor-lexical/compare/v1.0.9...v1.0.10) (2025-03-17)
 
 
