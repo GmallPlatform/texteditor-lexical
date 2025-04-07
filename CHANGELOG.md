@@ -1,3 +1,10 @@
+## [1.0.12](https://github.com/GmallPlatform/texteditor-lexical/compare/v1.0.11...v1.0.12) (2025-04-07)
+
+
+### Bug Fixes
+
+* remove husky from postinstall ([a01ffec](https://github.com/GmallPlatform/texteditor-lexical/commit/a01ffecf89e4e0fffad31243f22a02a901b4c912))
+
 ## [1.0.11](https://github.com/GmallPlatform/texteditor-lexical/compare/v1.0.10...v1.0.11) (2025-03-25)
 
 
