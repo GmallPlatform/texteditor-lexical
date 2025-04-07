@@ -34,8 +34,7 @@
     "prepare": "husky install",
     "release": "np",
     "semantic-release": "semantic-release",
-    "prepack": "npm run build",
-    "postinstall": "husky install"
+    "prepack": "npm run build"
   },
   "peerDependencies": {
     "react": "^18.0.0",
