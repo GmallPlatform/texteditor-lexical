@@ -1,3 +1,11 @@
+## [1.0.13](https://github.com/GmallPlatform/texteditor-lexical/compare/v1.0.12...v1.0.13) (2025-04-08)
+
+
+### Bug Fixes
+
+* add style.css for import ([ab6869e](https://github.com/GmallPlatform/texteditor-lexical/commit/ab6869e4b4988765563f3b1b5d4ac2c878722282))
+* add style.css to inport ([eb667cf](https://github.com/GmallPlatform/texteditor-lexical/commit/eb667cf3b90f7f63b21659774cd1dd860c544e2c))
+
 ## [1.0.12](https://github.com/GmallPlatform/texteditor-lexical/compare/v1.0.11...v1.0.12) (2025-04-07)
 
 
