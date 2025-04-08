@@ -1,3 +1,10 @@
+## [1.0.15](https://github.com/GmallPlatform/texteditor-lexical/compare/v1.0.14...v1.0.15) (2025-04-08)
+
+
+### Bug Fixes
+
+* add sideEffects in the the packege ([b740a0a](https://github.com/GmallPlatform/texteditor-lexical/commit/b740a0a43cc466c4cc8bc6eabe2304c3174aae7b))
+
 ## [1.0.14](https://github.com/GmallPlatform/texteditor-lexical/compare/v1.0.13...v1.0.14) (2025-04-08)
 
 
