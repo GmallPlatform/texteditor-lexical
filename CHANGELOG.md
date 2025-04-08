@@ -1,3 +1,10 @@
+## [1.0.14](https://github.com/GmallPlatform/texteditor-lexical/compare/v1.0.13...v1.0.14) (2025-04-08)
+
+
+### Bug Fixes
+
+* add new plugin for build ([11c09d3](https://github.com/GmallPlatform/texteditor-lexical/commit/11c09d3f474c57dbdcdaeaa32514a40cef046b95))
+
 ## [1.0.13](https://github.com/GmallPlatform/texteditor-lexical/compare/v1.0.12...v1.0.13) (2025-04-08)
 
 
