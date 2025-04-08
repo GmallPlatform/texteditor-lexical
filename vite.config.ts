@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import dts from "vite-plugin-dts"; // Добавляем поддержку деклараций
+import { libInjectCss } from "vite-plugin-lib-inject-css";
 
 export default defineConfig({
   plugins: [
@@ -8,6 +9,7 @@ export default defineConfig({
     dts({
       insertTypesEntry: true, // Добавляет `index.d.ts` в `dist`
     }),
+    libInjectCss(),
   ],
   build: {
     lib: {
