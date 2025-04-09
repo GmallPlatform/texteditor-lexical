@@ -1,3 +1,11 @@
+## [1.0.17](https://github.com/GmallPlatform/texteditor-lexical/compare/v1.0.16...v1.0.17) (2025-04-09)
+
+
+### Bug Fixes
+
+* add prepareHtmlForLexical in init plugin ([c3d0271](https://github.com/GmallPlatform/texteditor-lexical/commit/c3d027100be3afc8d1da387b2f60ce7bdc243149))
+* add prepareHtmlForLexical in plugin ([6f189bc](https://github.com/GmallPlatform/texteditor-lexical/commit/6f189bc6b8c415038509ed1326c2898c93d95b9e))
+
 ## [1.0.16](https://github.com/GmallPlatform/texteditor-lexical/compare/v1.0.15...v1.0.16) (2025-04-09)
 
 
