@@ -287,7 +287,7 @@
 
     .editor-input {
       resize: none;
-      font-size: 15px;
+      font-size: 16px;
       caret-color: rgb(5, 5, 5);
       position: relative;
       tab-size: 1;
@@ -458,12 +458,14 @@
       padding: 0;
       margin: 0;
       margin-left: 0px;
+      list-style: decimal;
     }
 
     .editor-list-ul {
       padding: 0;
       margin: 0;
       margin-left: 0px;
+      list-style: initial;
     }
 
     .editor-listitem {
@@ -1090,17 +1092,4 @@
       gap: var(--space-200, 8px);
     }
   }
-}
-.templates-editor-main-container .lexical-editor-wrapper.is-focused {
-  border-color: #8777b0;
-}
-
-/* Стиль для invalid состояния */
-.templates-editor-main-container .lexical-editor-wrapper.is-invalid {
-  border-color: oklch(57.7% 0.245 27.325);
-}
-
-/* Приоритет для invalid над focused, если оба состояния присутствуют */
-.templates-editor-main-container .lexical-editor-wrapper.is-focused.is-invalid {
-  border-color: oklch(57.7% 0.245 27.325);
 }
