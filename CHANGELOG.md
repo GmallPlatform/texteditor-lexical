@@ -1,3 +1,10 @@
+## [1.0.18](https://github.com/GmallPlatform/texteditor-lexical/compare/v1.0.17...v1.0.18) (2025-04-09)
+
+
+### Bug Fixes
+
+* change font size for 16px ([1f41bc3](https://github.com/GmallPlatform/texteditor-lexical/commit/1f41bc3ce523f9570db46ec363016c36363ba233))
+
 ## [1.0.17](https://github.com/GmallPlatform/texteditor-lexical/compare/v1.0.16...v1.0.17) (2025-04-09)
 
 
