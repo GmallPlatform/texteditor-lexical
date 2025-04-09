@@ -1,3 +1,10 @@
+## [1.0.16](https://github.com/GmallPlatform/texteditor-lexical/compare/v1.0.15...v1.0.16) (2025-04-09)
+
+
+### Bug Fixes
+
+* add border color for focus and invalid ([9a6421a](https://github.com/GmallPlatform/texteditor-lexical/commit/9a6421a4ee59c1c1d15905bba8ee0bea9b002a10))
+
 ## [1.0.15](https://github.com/GmallPlatform/texteditor-lexical/compare/v1.0.14...v1.0.15) (2025-04-08)
 
 
