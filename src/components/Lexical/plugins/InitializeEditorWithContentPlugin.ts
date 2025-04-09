@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import { $getRoot } from "lexical";
 import { $generateNodesFromDOM } from "@lexical/html";
-import { extractBodyContent } from "../utils/textProcess";
+import { prepareHtmlForLexical } from "../utils/textProcess";
 
 export const InitializeEditorWithContentPlugin = ({
   initialContent,
@@ -15,11 +15,7 @@ export const InitializeEditorWithContentPlugin = ({
   useEffect(() => {
     previousInitialContentRef.current = initialContent;
     editor.update(() => {
-      let cleanedContent = extractBodyContent(initialContent);
-
-      if (!cleanedContent.includes("<")) {
-        cleanedContent = `<p>${cleanedContent}</p>`;
-      }
+      let cleanedContent = prepareHtmlForLexical(initialContent);
       const parser = new DOMParser();
       const dom = parser.parseFromString(cleanedContent, "text/html");
       const newDoc = document.implementation.createHTMLDocument();
