@@ -10,6 +10,7 @@ export interface LexicalEditorProps {
     onFocusChange?: (isFocused: boolean) => void;
     onHoverChange?: (isHovered: boolean) => void;
     uploadImage?: boolean;
+    isInvalid?: boolean;
 }
-declare const EditLexical: ({ initialContent, onContentChange, readOnly, isAutosaving, toolbarHide, hideBorder, addButtonForToolbar, placeholder, onFocusChange, onHoverChange, uploadImage, }: LexicalEditorProps) => import("react/jsx-runtime").JSX.Element;
+declare const EditLexical: ({ initialContent, onContentChange, readOnly, isAutosaving, toolbarHide, hideBorder, addButtonForToolbar, placeholder, onFocusChange, onHoverChange, uploadImage, isInvalid, }: LexicalEditorProps) => import("react/jsx-runtime").JSX.Element;
 export default EditLexical;
