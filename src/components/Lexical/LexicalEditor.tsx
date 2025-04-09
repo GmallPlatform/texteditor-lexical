@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { LexicalComposer } from "@lexical/react/LexicalComposer";
 import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
 import { ContentEditable } from "@lexical/react/LexicalContentEditable";
@@ -35,6 +35,7 @@ export interface LexicalEditorProps {
   onFocusChange?: (isFocused: boolean) => void;
   onHoverChange?: (isHovered: boolean) => void;
   uploadImage?: boolean;
+  isInvalid?: boolean;
 }
 const EditLexical = ({
   initialContent = "",
@@ -48,17 +49,21 @@ const EditLexical = ({
   onFocusChange,
   onHoverChange,
   uploadImage,
+  isInvalid = false,
 }: LexicalEditorProps) => {
   const namespaceRef = useRef(`LexicalEditor-${uuidv4()}`);
   const [initContent, setInitContent] = React.useState("");
+  const [isFocused, setIsFocused] = useState(false);
   useEffect(() => {
     setInitContent(initialContent);
   }, [initialContent]);
   const handleFocus = () => {
+    setIsFocused(true);
     onFocusChange?.(true);
   };
 
   const handleBlur = () => {
+    setIsFocused(false);
     onFocusChange?.(false);
   };
 
@@ -73,7 +78,9 @@ const EditLexical = ({
     <>
       <div className="templates-editor-main-container">
         <div
-          className={`lexical-editor-wrapper ${hideBorder ? "hide-border" : ""}`}
+          className={`lexical-editor-wrapper ${hideBorder ? "hide-border" : ""} 
+            ${isFocused ? "is-focused" : ""} 
+            ${isInvalid ? "is-invalid" : ""}`}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >

@@ -1091,3 +1091,16 @@
     }
   }
 }
+.templates-editor-main-container .lexical-editor-wrapper.is-focused {
+  border-color: #8777b0;
+}
+
+/* Стиль для invalid состояния */
+.templates-editor-main-container .lexical-editor-wrapper.is-invalid {
+  border-color: oklch(57.7% 0.245 27.325);
+}
+
+/* Приоритет для invalid над focused, если оба состояния присутствуют */
+.templates-editor-main-container .lexical-editor-wrapper.is-focused.is-invalid {
+  border-color: oklch(57.7% 0.245 27.325);
+}
