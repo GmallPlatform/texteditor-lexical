@@ -5,7 +5,9 @@ import LexicalEditor from "../src/components/Lexical/LexicalEditor";
 import { transformHTML } from "./utils";
 
 function App() {
-  const [initContent, setInitContent] = useState("first content");
+  const [initContent, setInitContent] = useState(
+    "<p>Хропіння (ронхопатія) – це серйозна проблема, що впливає на здоров'я. Воно може супроводжуватися апное – зупинками дихання уві сні, які знижують рівень кисню в крові. Це призводить до втоми, головного болю, погіршення пам'яті, підвищеного тиску та серцево-судинних ускладнень, таких як інфаркт та інсульт. Ефективним методом лікування є лазерна увулопластика. Процедура покращує прохідність дихальних шляхів, усуває хропіння та нормалізує дихання під час сну. Вона проходить амбулаторно, не потребує тривалого відновлення, а вже через 1–2 години після втручання пацієнт може йти додому.</p>",
+  );
   const [loadingAutosave, setLoadingAutosave] = useState(false);
   const [currentContent, setCurrrentContent] = useState("");
 

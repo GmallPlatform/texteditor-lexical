@@ -1,3 +1,14 @@
 /* scr/style.css */
 @import "./components/Lexical/EditLexical.css";
 @import "./components/Lexical/css/button.css";
+@import "./components/AutosaveIndicator/AutosaveIndicator.css";
+@import "./components/Lexical/ToolbarPlugin.css";
+@import "./components/Lexical/components/fontSize.css";
+@import "./components/Lexical/nodes/ImageNode.css";
+@import "./components/Lexical/ui/Button.css";
+@import "./components/Lexical/ui/ColorPicker.css";
+@import "./components/Lexical/ui/ContentEditable.css";
+@import "./components/Lexical/ui/Dialog.css";
+@import "./components/Lexical/ui/Input.css";
+@import "./components/Lexical/ui/Modal.css";
+@import "./components/Lexical/ui/Select.css";

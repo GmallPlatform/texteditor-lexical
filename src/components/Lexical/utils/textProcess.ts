@@ -18,6 +18,7 @@ export function extractBodyContent(htmlString: string): string {
     return htmlString;
   }
 }
+
 export function prepareHtmlForLexical(htmlString: string): string {
   // Удаляем маркеры кодового блока, если они есть
   const codeBlockPattern = /^```html\s*([\s\S]*?)\s*```$/m;
