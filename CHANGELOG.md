@@ -1,3 +1,12 @@
+## [1.0.19](https://github.com/GmallPlatform/texteditor-lexical/compare/v1.0.18...v1.0.19) (2025-07-02)
+
+
+### Bug Fixes
+
+* add list style for list ([ac90051](https://github.com/GmallPlatform/texteditor-lexical/commit/ac900513fcd3c90bc5d8472ef7a63d70cdb1f59c))
+* fix byuild problem ([3e8911b](https://github.com/GmallPlatform/texteditor-lexical/commit/3e8911b040481f1522e15c56ab83f7a8f82d3012))
+* remove additional paragraph ([381776b](https://github.com/GmallPlatform/texteditor-lexical/commit/381776bbdc94e0fa56d56b88fd6f9b72e6c4d9d5))
+
 ## [1.0.18](https://github.com/GmallPlatform/texteditor-lexical/compare/v1.0.17...v1.0.18) (2025-04-09)
 
 
