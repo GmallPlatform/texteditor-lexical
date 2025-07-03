@@ -1,3 +1,10 @@
+## [1.0.23](https://github.com/GmallPlatform/texteditor-lexical/compare/v1.0.22...v1.0.23) (2025-07-03)
+
+
+### Bug Fixes
+
+* **api:** fix bug with init content ([8dace6e](https://github.com/GmallPlatform/texteditor-lexical/commit/8dace6e9be5b02aff7be74735923b515b34616bd))
+
 ## [1.0.22](https://github.com/GmallPlatform/texteditor-lexical/compare/v1.0.21...v1.0.22) (2025-07-03)
 
 
