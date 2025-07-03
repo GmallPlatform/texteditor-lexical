@@ -13,6 +13,7 @@ export const InitializeEditorWithContentPlugin = ({
   const previousInitialContentRef = useRef<string | undefined>();
 
   useEffect(() => {
+    console.log("initialContent", initialContent);
     if (!initialContent && initialContent !== "") return;
     previousInitialContentRef.current = initialContent;
     editor.update(() => {
