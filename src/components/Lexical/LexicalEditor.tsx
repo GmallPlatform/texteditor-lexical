@@ -74,7 +74,7 @@ const EditLexical = ({
   const handleMouseLeave = () => {
     onHoverChange?.(false);
   };
-  console.log("EditLexical initContent", initContent);
+  //console.log("EditLexical initContent", initContent);
   return (
     <>
       <div className="templates-editor-main-container">
